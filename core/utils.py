@@ -472,7 +472,7 @@ def split_docker_path(docker_path):
         return None
 
 def is_remote_path(filepath):
-    return filepath.startswith("/ssh:") or filepath.startswith("/docker:")
+    return filepath.startswith("/ssh:") or filepath.startswith("/docker:") or filepath.startswith("/plink:")
 
 def eval_sexp_in_emacs(sexp):
     epc_client.call("eval-in-emacs", [sexp])

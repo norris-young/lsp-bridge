@@ -1003,7 +1003,8 @@ So we build this macro to restore postion after code format."
 
 (defun lsp-bridge-path-equal (path-a path-b)
   (cond ((memq system-type '(cygwin windows-nt ms-dos))
-         (string-equal (downcase path-a) (downcase path-b)))
+         (string-equal (and path-a (downcase path-a))
+                       (and path-b (downcase path-b))))
         (t (string-equal path-a path-b))))
 
 (defun lsp-bridge--get-project-path-func (filename)
