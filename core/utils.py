@@ -202,7 +202,7 @@ def eval_in_emacs(method_name, *args):
     if lsp_bridge_server and lsp_bridge_server.file_command_server:
         lsp_bridge_server.file_command_server.send_message({
             "command": "eval-in-emacs",
-            "sexp": [sexp]
+            "sexp": sexp
         })
     else:
         epc_client.call("eval-in-emacs", [sexp])    # type: ignore
